@@ -1,0 +1,6 @@
+sources:
+  - name: raw_data
+    database: FETCH_REWARDS
+    schema: RAW_DATA
+    tables:
+      - name: receipts
