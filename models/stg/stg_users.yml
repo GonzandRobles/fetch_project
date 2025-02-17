@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: "Staging model for users containing key user attributes."
+    columns:
+      - name: user_id
+        description: "Unique user identifier."
+        tests:
+          - not_null
+          - unique
+      - name: state
+        description: "User's state abbreviation."
+      - name: created_date
+        description: "Timestamp when the user account was created."
+        tests:
+          - not_null
+      - name: last_login
+        description: "Timestamp of the user's last login."
+      - name: user_role
+        description: "User role (e.g., consumer)."
+        tests:
+          - not_null
+      - name: is_active
+        description: "Boolean flag indicating if the user is active."
+        tests:
+          - not_null

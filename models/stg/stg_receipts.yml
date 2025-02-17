@@ -1,0 +1,111 @@
+version: 2
+
+models:
+  - name: stg_receipts
+    description: "Staging model for receipts that extracts key fields and nested receipt item values from the first element of rewards_receipt_item_list."
+    columns:
+      - name: receipt_id
+        description: "Unique identifier for the receipt."
+        tests:
+          - not_null
+          - unique
+      - name: bonus_points_earned
+        description: "Number of bonus points earned for the receipt."
+      - name: bonus_points_earned_reason
+        description: "Reason bonus points were awarded."
+      - name: create_date
+        description: "Timestamp when the receipt was created."
+        tests:
+          - not_null
+      - name: date_scanned
+        description: "Timestamp when the receipt was scanned."
+        tests:
+          - not_null
+      - name: finished_date
+        description: "Timestamp when receipt processing finished."
+      - name: modify_date
+        description: "Timestamp when the receipt was last modified."
+      - name: points_awarded_date
+        description: "Timestamp when points were awarded for the receipt."
+      - name: points_earned
+        description: "Points earned on the receipt."
+      - name: purchase_date
+        description: "Timestamp of the purchase."
+      - name: rewards_receipt_status
+        description: "Status of receipt processing (e.g., finished, pending)."
+        tests:
+          - not_null
+      - name: user_id
+        description: "Identifier linking the receipt to a user."
+        tests:
+          - not_null
+      - name: amount_units
+        description: "Number of units purchased, aliased from purchased_item_count."
+      - name: amount_dollars
+        description: "Total amount spent on the receipt, aliased from total_spent."
+      - name: barcode
+        description: "Extracted barcode from the first element of rewards_receipt_item_list."
+      - name: description
+        description: "Extracted description from the first element of rewards_receipt_item_list."
+      - name: final_price
+        description: "Extracted finalPrice from the first element of rewards_receipt_item_list."
+      - name: item_price
+        description: "Extracted itemPrice from the first element of rewards_receipt_item_list."
+      - name: needs_fetch_review
+        description: "Indicates if the item needs further review."
+      - name: partner_item_id
+        description: "Extracted partnerItemId from the first element of rewards_receipt_item_list."
+      - name: prevent_target_gap_points
+        description: "Boolean flag indicating if target gap points should be prevented."
+      - name: quantity_purchased
+        description: "Number of units purchased for the extracted item."
+      - name: user_flagged_barcode
+        description: "Barcode flagged by the user."
+      - name: user_flagged_new_item
+        description: "Boolean indicating if the user flagged the item as new."
+      - name: user_flagged_price
+        description: "Price flagged by the user."
+      - name: user_flagged_quantity
+        description: "Quantity flagged by the user."
+      - name: brand_code
+        description: "Brand code of the item."
+      - name: competitive_product
+        description: "Indicator if the item is considered a competitive product."
+      - name: competitor_rewards_group
+        description: "Competitor rewards group associated with the item."
+      - name: deleted
+        description: "Boolean flag indicating if the item was deleted."
+      - name: discounted_item_price
+        description: "Discounted price of the item."
+      - name: item_number
+        description: "Unique item number."
+      - name: metabrite_campaign_id
+        description: "MetaBrite campaign identifier."
+      - name: needs_fetch_review_reason
+        description: "Reason why the item needs further review."
+      - name: original_final_price
+        description: "Original final price before adjustments."
+      - name: original_metabrite_barcode
+        description: "Original MetaBrite barcode."
+      - name: original_metabrite_description
+        description: "Original MetaBrite description."
+      - name: original_metabrite_item_price
+        description: "Original MetaBrite item price."
+      - name: original_metabrite_quantity_purchased
+        description: "Original quantity purchased according to MetaBrite."
+      - name: original_receipt_item_text
+        description: "Original text extracted from the receipt."
+      - name: points_earned_item
+        description: "Points earned specifically for this item."
+      - name: points_not_awarded_reason
+        description: "Reason why points were not awarded for this item."
+      - name: points_payer_id
+        description: "Identifier of the entity responsible for paying the points."
+      - name: price_after_coupon
+        description: "Price after applying any coupons."
+      - name: rewards_group
+        description: "Rewards group associated with the item."
+      - name: rewards_product_partner_id
+        description: "Rewards product partner ID."
+      - name: target_price
+        description: "Target price for the item."

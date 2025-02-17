@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: core_receipts
+    description: >
+      Core model that joins fact_receipts with dim_users and dim_brands.
+      It uses the first element in rewards_receipt_item_list to extract a barcode to join with dim_brands.
+    columns:
+      - name: receipt_id
+        description: "Unique identifier for the receipt."
+        tests:
+          - not_null
+          - unique
+      - name: bonus_points_earned
+        description: "Number of bonus points earned."
+      - name: bonus_points_earned_reason
+        description: "Reason bonus points were awarded."
+      - name: create_date
+        description: "Timestamp when the receipt was created."
+      - name: date_scanned
+        description: "Timestamp when the receipt was scanned."
+      - name: finished_date
+        description: "Timestamp when receipt processing finished."
+      - name: modify_date
+        description: "Timestamp when the receipt was modified."
+      - name: points_awarded_date
+        description: "Timestamp when points were awarded."
+      - name: points_earned
+        description: "Points earned on the receipt."
+      - name: purchase_date
+        description: "Date of purchase."
+      - name: purchased_item_count
+        description: "Count of items purchased."
+      - name: rewards_receipt_item_list
+        description: "Nested list of purchased items."
+      - name: rewards_receipt_status
+        description: "Receipt processing status."
+      - name: total_spent
+        description: "Total amount spent on the receipt."
+      - name: user_id
+        description: "Identifier linking the receipt to a user."
+        tests:
+          - not_null
+      - name: state
+        description: "User's state."
+      - name: user_created_date
+        description: "Date the user account was created."
+      - name: last_login
+        description: "User's last login timestamp."
+      - name: user_role
+        description: "User role."
+      - name: sign_up_source
+        description: "User's sign-up source."
+      - name: brand_id
+        description: "Unique identifier for the brand."
+      - name: brand_barcode
+        description: "Brand barcode."
+      - name: category
+        description: "Brand category."
+      - name: category_code
+        description: "Brand category code."
+      - name: cpg_id
+        description: "CPG identifier for the brand."
+      - name: cpg_ref
+        description: "CPG reference for the brand."
+      - name: brand_name
+        description: "Brand name."
+      - name: is_top_brand
+        description: "Boolean flag indicating if the brand is top/featured."

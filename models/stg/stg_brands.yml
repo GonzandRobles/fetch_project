@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_brands
+    description: "Staging model for brands containing key brand information."
+    columns:
+      - name: brand_id
+        description: "Unique identifier for the brand."
+        tests:
+          - not_null
+          - unique
+      - name: barcode
+        description: "Barcode of the brand."
+        tests:
+          - not_null
+          - unique
+      - name: category
+        description: "Category name of the brand."
+   
+      - name: category_code
+        description: "Category code of the brand."
+
+      - name: cpg_id
+        description: "CPG identifier for the brand."
+      - name: cpg_ref
+        description: "CPG reference for the brand."
+      - name: brand_name
+        description: "Brand name."
+        tests:
+          - not_null
+      - name: is_top_brand
+        description: "Boolean flag indicating if this is a top/featured brand."
